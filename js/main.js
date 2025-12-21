@@ -108,12 +108,68 @@ function initSmoothScroll() {
   });
 }
 
+// Contact form handling
+async function handleContactSubmit(event) {
+  event.preventDefault();
+  
+  const nameInput = document.getElementById('contact-name');
+  const emailInput = document.getElementById('contact-email');
+  const messageInput = document.getElementById('contact-message');
+  const messageEl = document.getElementById('contact-form-message');
+  const submitBtn = event.target.querySelector('button[type="submit"]');
+  
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const message = messageInput.value.trim();
+  
+  if (!name || !email || !message) {
+    showMessage(messageEl, 'Please fill in all fields.', 'error');
+    return;
+  }
+  
+  // Disable button while submitting
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+  
+  try {
+    // Ensure Supabase is initialized
+    const sb = await initSupabase();
+    
+    // Insert into contact_messages table
+    const { error } = await sb
+      .from('contact_messages')
+      .insert([{ name, email, message }]);
+    
+    if (error) {
+      console.error('Contact form error:', error);
+      showMessage(messageEl, 'Something went wrong. Please try again.', 'error');
+    } else {
+      showMessage(messageEl, "Thanks! We'll get back to you soon.", 'success');
+      nameInput.value = '';
+      emailInput.value = '';
+      messageInput.value = '';
+    }
+  } catch (err) {
+    console.error('Contact form error:', err);
+    showMessage(messageEl, 'Something went wrong. Please try again.', 'error');
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send Message';
+  }
+}
+
 // Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
   // Set up waitlist form
   const waitlistForm = document.getElementById('waitlist-form');
   if (waitlistForm) {
     waitlistForm.addEventListener('submit', handleWaitlistSubmit);
+  }
+  
+  // Set up contact form
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', handleContactSubmit);
   }
   
   // Set up smooth scrolling

@@ -301,8 +301,13 @@ p {
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
+}
+
+/* Center the "Coming Soon" card under the middle column */
+.features-grid .feature-card:nth-child(4) {
+  grid-column: 2;
 }
 
 .feature-card {
@@ -571,6 +576,145 @@ p {
   color: #f87171;
 }
 
+/* Contact Section */
+.section-contact {
+  background-color: var(--color-cream);
+  text-align: center;
+}
+
+.section-contact h2 {
+  color: var(--color-charcoal);
+}
+
+.section-contact > .container > p {
+  color: var(--color-gray-600);
+  margin-bottom: var(--space-lg);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  font-family: var(--font-sans);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  background-color: var(--color-white);
+  color: var(--color-charcoal);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--color-gray-400);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--color-orange);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form-message {
+  margin-top: var(--space-sm);
+  font-size: 0.875rem;
+}
+
+.contact-form-message.success {
+  color: #22c55e;
+}
+
+.contact-form-message.error {
+  color: #f87171;
+}
+
+/* About Page */
+.about-hero {
+  padding: calc(var(--space-2xl) + 80px) 0 var(--space-xl);
+  text-align: center;
+  background-color: var(--color-cream);
+}
+
+.about-hero h1 {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-about-content {
+  background-color: var(--color-white);
+}
+
+.about-story {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.about-intro {
+  font-size: 1.375rem;
+  font-weight: 500;
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-lg);
+}
+
+.about-story p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--color-gray-600);
+  margin-bottom: var(--space-md);
+}
+
+.about-story h2 {
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-md);
+  font-size: 1.75rem;
+}
+
+.about-list {
+  list-style: none;
+  margin: var(--space-md) 0 var(--space-lg);
+  padding: 0;
+}
+
+.about-list li {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--color-gray-600);
+  padding: var(--space-sm) 0;
+  padding-left: var(--space-lg);
+  position: relative;
+}
+
+.about-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.4rem;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-orange);
+  border-radius: 50%;
+}
+
+.about-list li strong {
+  color: var(--color-charcoal);
+}
+
+.about-cta {
+  margin-top: var(--space-xl);
+  text-align: center;
+}
+
 /* Footer */
 .footer {
   background-color: var(--color-charcoal);
@@ -643,6 +787,10 @@ p {
   
   .features-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .features-grid .feature-card:nth-child(4) {
+    grid-column: 1;
   }
   
   .pricing-card {
