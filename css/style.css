@@ -184,9 +184,22 @@ p {
   justify-content: space-between;
 }
 
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .nav-logo img {
   height: 32px;
   width: auto;
+}
+
+.nav-logo-text {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
 }
 
 .nav-links {
