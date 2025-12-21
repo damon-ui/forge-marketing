@@ -710,6 +710,31 @@ p {
   color: var(--color-charcoal);
 }
 
+.about-photo {
+  margin: var(--space-lg) 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.about-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.about-photo-top {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-photo-bottom {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: var(--space-xl);
+}
+
 .about-cta {
   margin-top: var(--space-xl);
   text-align: center;
