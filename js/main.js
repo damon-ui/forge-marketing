@@ -7,14 +7,19 @@ const SUPABASE_URL = 'https://fcvsadmwtdfvapdmpcsv.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZjdnNhZG13dGRmdmFwZG1wY3N2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ3NzU4NDcsImV4cCI6MjA4MDM1MTg0N30.XOGN7LQmVksy1BheoBRJ8LvtNoEBAww4wnbewHwJu7o';
 
 // Initialize Supabase client
-let supabase;
+let supabaseClient = null;
 
 async function initSupabase() {
+  if (supabaseClient) return supabaseClient;
+  
   // Dynamically load Supabase if not already available
   if (typeof window.supabase === 'undefined') {
     await loadScript('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js');
   }
-  supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  
+  // The UMD build exposes supabase.createClient
+  supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  return supabaseClient;
 }
 
 function loadScript(src) {
@@ -48,12 +53,10 @@ async function handleWaitlistSubmit(event) {
   
   try {
     // Ensure Supabase is initialized
-    if (!supabase) {
-      await initSupabase();
-    }
+    const sb = await initSupabase();
     
     // Insert into waitlist table
-    const { data, error } = await supabase
+    const { data, error } = await sb
       .from('waitlist')
       .insert([{ email }])
       .select();
@@ -108,9 +111,6 @@ function initSmoothScroll() {
 
 // Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize Supabase
-  initSupabase();
-  
   // Set up waitlist form
   const waitlistForm = document.getElementById('waitlist-form');
   if (waitlistForm) {
