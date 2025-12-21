@@ -55,11 +55,10 @@ async function handleWaitlistSubmit(event) {
     // Ensure Supabase is initialized
     const sb = await initSupabase();
     
-    // Insert into waitlist table
-    const { data, error } = await sb
+    // Insert into waitlist table (no .select() since we don't have a SELECT policy)
+    const { error } = await sb
       .from('waitlist')
-      .insert([{ email }])
-      .select();
+      .insert([{ email }]);
     
     if (error) {
       // Check for duplicate email
