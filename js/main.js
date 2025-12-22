@@ -158,6 +158,53 @@ async function handleContactSubmit(event) {
   }
 }
 
+// Billing toggle
+function initBillingToggle() {
+  const toggle = document.getElementById('billing-toggle');
+  const pricingSection = document.getElementById('pricing');
+  const monthlyLabel = document.querySelector('.pricing-toggle-label[data-period="monthly"]');
+  const annualLabel = document.querySelector('.pricing-toggle-label[data-period="annual"]');
+  
+  if (!toggle) return;
+  
+  function updatePricing(isAnnual) {
+    const priceNumbers = document.querySelectorAll('.pricing-number[data-monthly]');
+    
+    priceNumbers.forEach(el => {
+      el.textContent = isAnnual ? el.dataset.annual : el.dataset.monthly;
+    });
+    
+    if (isAnnual) {
+      pricingSection.classList.add('annual-billing');
+      monthlyLabel.classList.remove('active');
+      annualLabel.classList.add('active');
+    } else {
+      pricingSection.classList.remove('annual-billing');
+      monthlyLabel.classList.add('active');
+      annualLabel.classList.remove('active');
+    }
+  }
+  
+  // Set initial state
+  updatePricing(toggle.checked);
+  
+  // Listen for changes
+  toggle.addEventListener('change', () => {
+    updatePricing(toggle.checked);
+  });
+  
+  // Allow clicking labels to toggle
+  monthlyLabel.addEventListener('click', () => {
+    toggle.checked = false;
+    updatePricing(false);
+  });
+  
+  annualLabel.addEventListener('click', () => {
+    toggle.checked = true;
+    updatePricing(true);
+  });
+}
+
 // Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
   // Set up waitlist form
@@ -174,4 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Set up smooth scrolling
   initSmoothScroll();
+  
+  // Set up billing toggle
+  initBillingToggle();
 });

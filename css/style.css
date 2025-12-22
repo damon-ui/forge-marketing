@@ -402,17 +402,105 @@ p {
 .pricing-intro {
   font-size: 1.125rem;
   color: var(--color-gray-600);
+  margin-bottom: var(--space-lg);
+}
+
+/* Billing Toggle */
+.pricing-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
   margin-bottom: var(--space-xl);
 }
 
-.pricing-card {
-  max-width: 400px;
-  margin: 0 auto;
-  background-color: var(--color-white);
-  padding: var(--space-xl);
-  border-radius: var(--radius-lg);
-  border: 2px solid var(--color-orange);
+.pricing-toggle-label {
+  font-size: 0.9375rem;
+  color: var(--color-gray-600);
+  cursor: pointer;
+}
+
+.pricing-toggle-label[data-period="monthly"].active,
+.pricing-toggle-label[data-period="annual"].active {
+  color: var(--color-charcoal);
+  font-weight: 600;
+}
+
+.pricing-toggle-save {
+  background-color: var(--color-orange);
+  color: var(--color-white);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 20px;
+  margin-left: 0.25rem;
+}
+
+.pricing-toggle-switch {
   position: relative;
+  width: 50px;
+  height: 26px;
+}
+
+.pricing-toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.pricing-toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-gray-200);
+  transition: var(--transition-base);
+  border-radius: 26px;
+}
+
+.pricing-toggle-slider::before {
+  position: absolute;
+  content: '';
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--color-white);
+  transition: var(--transition-base);
+  border-radius: 50%;
+}
+
+.pricing-toggle-switch input:checked + .pricing-toggle-slider {
+  background-color: var(--color-orange);
+}
+
+.pricing-toggle-switch input:checked + .pricing-toggle-slider::before {
+  transform: translateX(24px);
+}
+
+/* Pricing Cards Container */
+.pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+  max-width: 800px;
+  margin: 0 auto var(--space-xl);
+}
+
+/* Pricing Card */
+.pricing-card {
+  background-color: var(--color-white);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-gray-200);
+  position: relative;
+  text-align: left;
+}
+
+.pricing-card-featured {
+  border: 2px solid var(--color-orange);
 }
 
 .pricing-badge {
@@ -426,10 +514,25 @@ p {
   border-radius: 20px;
   font-size: 0.875rem;
   font-weight: 600;
+  white-space: nowrap;
+}
+
+.pricing-tier-name {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+.pricing-tier-desc {
+  font-size: 0.9375rem;
+  color: var(--color-gray-600);
+  margin-bottom: var(--space-md);
 }
 
 .pricing-amount {
-  margin: var(--space-lg) 0;
+  margin-bottom: 0.25rem;
 }
 
 .pricing-currency {
@@ -440,35 +543,91 @@ p {
 
 .pricing-number {
   font-family: var(--font-display);
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 700;
   line-height: 1;
 }
 
 .pricing-period {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   color: var(--color-gray-600);
+}
+
+.pricing-annual-note {
+  font-size: 0.875rem;
+  color: var(--color-gray-400);
+  margin-bottom: var(--space-md);
+}
+
+.pricing-annual-note .show-annual {
+  display: none;
+}
+
+.annual-billing .pricing-annual-note .show-monthly {
+  display: none;
+}
+
+.annual-billing .pricing-annual-note .show-annual {
+  display: inline;
 }
 
 .pricing-features {
   list-style: none;
-  text-align: left;
   margin-bottom: var(--space-lg);
+  padding: 0;
 }
 
 .pricing-features li {
-  padding: var(--space-xs) 0;
+  padding: 0.5rem 0;
   color: var(--color-gray-600);
+  font-size: 0.9375rem;
 }
 
-.pricing-features li::before {
-  content: '';
+.pricing-features li strong {
+  color: var(--color-charcoal);
 }
 
-.pricing-note {
+.pricing-feature-highlight {
+  color: var(--color-orange) !important;
+  font-weight: 500;
+}
+
+.pricing-card .btn {
+  width: 100%;
+}
+
+/* Founding Member Callout */
+.pricing-founding {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--space-lg);
+  background-color: var(--color-charcoal);
+  border-radius: var(--radius-lg);
+  color: var(--color-white);
+  text-align: center;
+}
+
+.pricing-founding-badge {
+  display: inline-block;
   font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+}
+
+.pricing-founding h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+}
+
+.pricing-founding p {
   color: var(--color-gray-400);
-  margin-bottom: var(--space-lg);
+  margin-bottom: 0;
+}
+
+.pricing-founding strong {
+  color: var(--color-orange);
 }
 
 /* FAQ Section */
@@ -723,7 +882,7 @@ p {
 }
 
 .about-photo-top {
-  max-width: 500px;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -816,6 +975,15 @@ p {
   
   .features-grid .feature-card:nth-child(4) {
     grid-column: 1;
+  }
+  
+  .pricing-cards {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  
+  .pricing-toggle {
+    flex-wrap: wrap;
   }
   
   .pricing-card {

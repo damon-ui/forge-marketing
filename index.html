@@ -98,25 +98,71 @@
   <!-- Pricing -->
   <section id="pricing" class="section section-pricing">
     <div class="container">
-      <h2>Early adopter pricing. Locked forever.</h2>
-      <p class="pricing-intro">We're launching soon, and our founding members get in at a special rate.</p>
+      <h2>Simple pricing. No surprises.</h2>
+      <p class="pricing-intro">Start with a 14-day free trial. Pick the plan that fits how you work.</p>
       
-      <div class="pricing-card">
-        <div class="pricing-badge">Founding Member</div>
-        <div class="pricing-amount">
-          <span class="pricing-currency">$</span>
-          <span class="pricing-number">15</span>
-          <span class="pricing-period">/month</span>
-        </div>
-        <ul class="pricing-features">
-          <li>&#10003; Unlimited itineraries</li>
-          <li>&#10003; 5 client comparisons/month</li>
-          <li>&#10003; Full access to all tools</li>
-          <li>&#10003; Locked at this rate forever</li>
-        </ul>
-        <p class="pricing-note">No contracts. No setup fees. No "enterprise tier" upsells.</p>
-        <a href="#waitlist" class="btn btn-primary btn-large">Join the Waitlist</a>
+      <!-- Billing Toggle -->
+      <div class="pricing-toggle">
+        <span class="pricing-toggle-label" data-period="monthly">Monthly</span>
+        <label class="pricing-toggle-switch">
+          <input type="checkbox" id="billing-toggle">
+          <span class="pricing-toggle-slider"></span>
+        </label>
+        <span class="pricing-toggle-label" data-period="annual">Annual <span class="pricing-toggle-save">Save up to 14%</span></span>
       </div>
+      
+      <div class="pricing-cards">
+        <!-- Starter -->
+        <div class="pricing-card">
+          <h3 class="pricing-tier-name">Starter</h3>
+          <p class="pricing-tier-desc">For advisors booking 1-2 trips/month</p>
+          <div class="pricing-amount">
+            <span class="pricing-currency">$</span>
+            <span class="pricing-number" data-monthly="15" data-annual="13">15</span>
+            <span class="pricing-period">/month</span>
+          </div>
+          <p class="pricing-annual-note"><span class="show-monthly">or $156/year ($13/mo)</span><span class="show-annual">$156 billed annually</span></p>
+          <ul class="pricing-features">
+            <li>&#10003; 5 comparisons/month</li>
+            <li>&#10003; 5 itineraries/month</li>
+            <li>&#10003; AI-powered trip building</li>
+            <li>&#10003; Client voting</li>
+            <li>&#10003; PDF exports</li>
+            <li class="pricing-feature-highlight">&#10003; Annual plan: 60 banked for the year</li>
+          </ul>
+          <a href="#waitlist" class="btn btn-ghost btn-large">Join Waitlist</a>
+        </div>
+        
+        <!-- Pro -->
+        <div class="pricing-card pricing-card-featured">
+          <div class="pricing-badge">Most Popular</div>
+          <h3 class="pricing-tier-name">Pro</h3>
+          <p class="pricing-tier-desc">For advisors booking 3+ trips/month</p>
+          <div class="pricing-amount">
+            <span class="pricing-currency">$</span>
+            <span class="pricing-number" data-monthly="29" data-annual="25">29</span>
+            <span class="pricing-period">/month</span>
+          </div>
+          <p class="pricing-annual-note"><span class="show-monthly">or $300/year ($25/mo)</span><span class="show-annual">$300 billed annually</span></p>
+          <ul class="pricing-features">
+            <li>&#10003; <strong>Unlimited</strong> comparisons</li>
+            <li>&#10003; <strong>Unlimited</strong> itineraries</li>
+            <li>&#10003; AI-powered trip building</li>
+            <li>&#10003; Client voting</li>
+            <li>&#10003; PDF exports</li>
+            <li>&#10003; Priority support</li>
+          </ul>
+          <a href="#waitlist" class="btn btn-primary btn-large">Join Waitlist</a>
+        </div>
+      </div>
+      
+      <!-- Founding Member Callout -->
+      <div class="pricing-founding">
+        <div class="pricing-founding-badge">&#128293; Limited Offer</div>
+        <h3>Founding Member Deal</h3>
+        <p>The first 100 advisors get <strong>Pro features at $15/month</strong>&#8212;locked at that rate forever. Join the waitlist to secure your spot.</p>
+      </div>
+      
     </div>
   </section>
 
