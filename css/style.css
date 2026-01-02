@@ -559,6 +559,13 @@ p {
   border: 1px solid var(--color-gray-200);
   position: relative;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-card .btn {
+  width: 100%;
+  margin-top: auto;
 }
 
 .pricing-card-featured {
@@ -671,10 +678,6 @@ p {
 
 .pricing-feature-intro::before {
   content: none;
-}
-
-.pricing-card .btn {
-  width: 100%;
 }
 
 /* Founding Member Callout */
