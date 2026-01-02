@@ -305,8 +305,8 @@ p {
   gap: var(--space-lg);
 }
 
-/* Center the "Coming Soon" card under the middle column */
-.features-grid .feature-card:nth-child(4) {
+/* Center the "Coming Soon" card (7th) under the middle column */
+.features-grid .feature-card:nth-child(7) {
   grid-column: 2;
 }
 
@@ -1035,7 +1035,7 @@ p {
     grid-template-columns: 1fr;
   }
   
-  .features-grid .feature-card:nth-child(4) {
+  .features-grid .feature-card:nth-child(7) {
     grid-column: 1;
   }
   
