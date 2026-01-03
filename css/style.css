@@ -714,6 +714,31 @@ p {
   color: var(--color-orange);
 }
 
+.founding-counter {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin: var(--space-md) 0;
+}
+
+.founding-counter-number {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--color-orange);
+  line-height: 1;
+}
+
+.founding-counter-label {
+  font-size: 1.125rem;
+  color: var(--color-gray-400);
+}
+
+.pricing-founding .btn {
+  margin-top: var(--space-sm);
+}
+
 /* FAQ Section */
 .section-faq {
   background-color: var(--color-white);
