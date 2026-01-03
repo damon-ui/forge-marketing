@@ -1048,6 +1048,267 @@ p {
   margin-bottom: 0;
 }
 
+/* Hero Metrics */
+.hero-audience {
+  font-size: 0.95rem;
+  color: var(--color-orange);
+  font-weight: 500;
+  margin-bottom: var(--space-md);
+}
+
+.hero-metrics {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-lg);
+  background: var(--color-white);
+  border: 2px solid var(--color-orange);
+  border-radius: 50px;
+  padding: var(--space-md) var(--space-xl);
+  margin-bottom: var(--space-lg);
+}
+
+.hero-metric-item {
+  text-align: center;
+}
+
+.hero-metric-icon {
+  font-size: 1.75rem;
+  margin-bottom: var(--space-xs);
+}
+
+.hero-metric-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+}
+
+.hero-metric-subtext {
+  font-size: 0.75rem;
+  color: var(--color-gray-400);
+}
+
+.hero-metric-divider {
+  width: 1px;
+  height: 50px;
+  background: var(--color-gray-200);
+}
+
+/* Workflow Section */
+.section-workflow {
+  background-color: var(--color-white);
+}
+
+.section-workflow h2 {
+  text-align: center;
+  margin-bottom: var(--space-sm);
+}
+
+.workflow-intro {
+  text-align: center;
+  color: var(--color-gray-600);
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin: 0 auto var(--space-xl);
+}
+
+.workflow-steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: 0 var(--space-sm);
+}
+
+.workflow-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  max-width: 140px;
+}
+
+.workflow-step-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--color-cream);
+  border: 2px solid var(--color-orange);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin: 0 auto var(--space-sm);
+  position: relative;
+  z-index: 2;
+}
+
+.workflow-step-arrow {
+  position: absolute;
+  top: 28px;
+  right: -8px;
+  color: var(--color-orange);
+  font-size: 1rem;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.workflow-step:last-child .workflow-step-arrow {
+  display: none;
+}
+
+.workflow-step-title {
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: var(--space-xs);
+}
+
+.workflow-step-desc {
+  font-size: 0.75rem;
+  color: var(--color-gray-600);
+  line-height: 1.4;
+}
+
+.workflow-step-flow {
+  font-size: 0.7rem;
+  color: var(--color-orange);
+  font-weight: 500;
+  margin-top: var(--space-xs);
+  font-style: italic;
+}
+
+/* Value Props Section */
+.section-value-props {
+  background-color: var(--color-cream);
+}
+
+.section-value-props h2 {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.value-props-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.value-prop-card {
+  background: var(--color-white);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  border: 1px solid var(--color-gray-200);
+}
+
+.value-prop-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-sm);
+}
+
+.value-prop-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: var(--space-sm);
+}
+
+.value-prop-card p {
+  font-size: 0.95rem;
+  color: var(--color-gray-600);
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+/* Features Flow Section */
+.section-features-flow {
+  background-color: var(--color-white);
+}
+
+.section-features-flow h2 {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.features-flow-grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.feature-flow-item {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background: var(--color-cream);
+  border-radius: var(--radius-lg);
+  align-items: start;
+}
+
+.feature-flow-item-coming {
+  background: var(--color-cream-dark);
+  border: 1px dashed var(--color-gray-400);
+}
+
+.feature-flow-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--color-white);
+  border: 2px solid var(--color-orange);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.feature-flow-content h3 {
+  font-size: 1.05rem;
+  margin-bottom: var(--space-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.feature-flow-badge {
+  font-size: 0.65rem;
+  background: var(--color-orange);
+  color: var(--color-white);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+}
+
+.feature-flow-badge-coming {
+  background: var(--color-gray-400);
+}
+
+.feature-flow-content p {
+  color: var(--color-gray-600);
+  font-size: 0.95rem;
+  margin-bottom: var(--space-sm);
+}
+
+.feature-flow-arrow {
+  font-size: 0.85rem;
+  color: var(--color-orange);
+  font-weight: 500;
+}
+
+/* Pricing Transition */
+.section-pricing-transition {
+  background-color: var(--color-cream-dark);
+  text-align: center;
+  padding: var(--space-xl) 0;
+}
+
+.section-pricing-transition h2 {
+  margin-bottom: var(--space-sm);
+}
+
+.section-pricing-transition p {
+  color: var(--color-gray-600);
+  margin-bottom: 0;
+}
+
 /* --- Mobile Responsive --- */
 @media (max-width: 768px) {
   .nav-links {
@@ -1109,5 +1370,53 @@ p {
 
   .showcase-image-phone {
     max-width: 280px;
+  }
+
+  /* Hero metrics mobile */
+  .hero-metrics {
+    flex-direction: column;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+  }
+
+  .hero-metric-divider {
+    width: 80%;
+    height: 1px;
+  }
+
+  /* Workflow mobile */
+  .workflow-steps {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-lg);
+  }
+
+  .workflow-step {
+    flex: 0 0 calc(33% - var(--space-md));
+    max-width: none;
+  }
+
+  .workflow-step-arrow {
+    display: none;
+  }
+
+  /* Value props mobile */
+  .value-props-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Features flow mobile */
+  .feature-flow-item {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .feature-flow-icon {
+    margin: 0 auto var(--space-sm);
+  }
+
+  .feature-flow-content h3 {
+    justify-content: center;
   }
 }
