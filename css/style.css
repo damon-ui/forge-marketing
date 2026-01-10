@@ -333,6 +333,19 @@ p {
   margin-bottom: var(--space-sm);
 }
 
+.feature-card-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-sm);
+}
+
+.features-intro {
+  text-align: center;
+  color: var(--color-gray-600);
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin: 0 auto var(--space-xl);
+}
+
 .feature-card h3 {
   margin-bottom: var(--space-xs);
 }
