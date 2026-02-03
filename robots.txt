@@ -1,0 +1,12 @@
+# FORGE Travel Tools - robots.txt
+# https://forgetravel.tools
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://forgetravel.tools/sitemap.xml
+
+# Disallow any admin or API paths (none currently, but future-proofing)
+Disallow: /api/
+Disallow: /admin/
