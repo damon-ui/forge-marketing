@@ -1347,6 +1347,100 @@ p {
   margin-bottom: 0;
 }
 
+/* Single-tier pricing layout */
+.pricing-cards-single {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  max-width: 800px;
+  margin: 0 auto var(--space-xl);
+}
+
+.pricing-cards-single .pricing-card {
+  flex: 1;
+  max-width: 380px;
+}
+
+.founding-counter-inline {
+  margin-top: var(--space-sm);
+  font-size: 0.9rem;
+  color: var(--color-gray-400);
+  text-align: center;
+}
+
+.founding-counter-inline .founding-counter-number {
+  font-weight: 700;
+  color: var(--color-orange);
+}
+
+/* Pricing included grid */
+.pricing-included {
+  margin-top: var(--space-xl);
+  text-align: center;
+}
+
+.pricing-included h3 {
+  margin-bottom: var(--space-lg);
+}
+
+.pricing-included-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-sm);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pricing-included-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  border: 1px solid var(--color-gray-200);
+}
+
+.pricing-included-icon {
+  font-size: 1.2rem;
+}
+
+/* Feature card with "New" badge */
+.feature-card-new {
+  position: relative;
+}
+
+.feature-card-badge {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  background: var(--color-orange);
+  color: var(--color-white);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+}
+
+/* 12-card features grid (4x3) */
+.features-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Remove the centering rule for 7th card since we have 12 now */
+.features-grid .feature-card:nth-child(7) {
+  grid-column: auto;
+}
+
+/* --- Tablet Responsive --- */
+@media (max-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 /* --- Mobile Responsive --- */
 @media (max-width: 768px) {
   .nav-links {
@@ -1371,6 +1465,20 @@ p {
   
   .features-grid .feature-card:nth-child(7) {
     grid-column: 1;
+  }
+  
+  .pricing-cards-single {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .pricing-cards-single .pricing-card {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .pricing-included-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   
   .pricing-cards {
