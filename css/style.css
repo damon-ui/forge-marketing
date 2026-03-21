@@ -300,14 +300,14 @@ p {
 }
 
 .features-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--space-lg);
+  justify-content: center;
 }
 
-/* Center the "Coming Soon" card (7th) under the middle column */
-.features-grid .feature-card:nth-child(7) {
-  grid-column: 2;
+.features-grid .feature-card {
+  flex: 0 1 calc(33.333% - var(--space-lg));
 }
 
 .feature-card {
