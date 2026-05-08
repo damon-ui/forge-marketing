@@ -402,6 +402,30 @@ p {
   font-size: 1.125rem;
 }
 
+.app-badges {
+  display: flex;
+  gap: 12px;
+  margin-top: var(--space-md);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.app-badge {
+  display: inline-block;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.app-badge:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+.app-badge img {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
 .showcase-image {
   border-radius: var(--radius-lg);
   overflow: hidden;
