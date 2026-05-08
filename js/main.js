@@ -108,46 +108,59 @@ function initSmoothScroll() {
   });
 }
 
-// Contact form handling
+// Contact form handling — submits to Web3Forms
+const WEB3FORMS_ACCESS_KEY = '9b145700-4b7a-4040-ba4a-d1eb1fdaee20';
+
 async function handleContactSubmit(event) {
   event.preventDefault();
-  
+
   const nameInput = document.getElementById('contact-name');
   const emailInput = document.getElementById('contact-email');
   const messageInput = document.getElementById('contact-message');
+  const botcheckInput = document.getElementById('contact-botcheck');
   const messageEl = document.getElementById('contact-form-message');
   const submitBtn = event.target.querySelector('button[type="submit"]');
-  
+
   const name = nameInput.value.trim();
   const email = emailInput.value.trim();
   const message = messageInput.value.trim();
-  
+
   if (!name || !email || !message) {
     showMessage(messageEl, 'Please fill in all fields.', 'error');
     return;
   }
-  
-  // Disable button while submitting
+
   submitBtn.disabled = true;
   submitBtn.textContent = 'Sending...';
-  
+
   try {
-    // Ensure Supabase is initialized
-    const sb = await initSupabase();
-    
-    // Insert into contact_messages table
-    const { error } = await sb
-      .from('contact_messages')
-      .insert([{ name, email, message }]);
-    
-    if (error) {
-      console.error('Contact form error:', error);
-      showMessage(messageEl, 'Something went wrong. Please try again.', 'error');
-    } else {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: 'New contact form submission — forgetravel.co',
+        from_name: 'FORGE Marketing Site',
+        name,
+        email,
+        message,
+        botcheck: botcheckInput ? botcheckInput.checked : false
+      })
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
       showMessage(messageEl, "Thanks! We'll get back to you soon.", 'success');
       nameInput.value = '';
       emailInput.value = '';
       messageInput.value = '';
+    } else {
+      console.error('Contact form error:', result);
+      showMessage(messageEl, 'Something went wrong. Please try again.', 'error');
     }
   } catch (err) {
     console.error('Contact form error:', err);
