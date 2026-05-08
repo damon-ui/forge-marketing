@@ -421,9 +421,17 @@ p {
 }
 
 .app-badge img {
-  height: 44px;
   width: auto;
   display: block;
+}
+
+.app-badge-apple img {
+  height: 44px;
+}
+
+.app-badge-google img {
+  height: 64px;
+  margin: -10px 0;
 }
 
 .showcase-image {
